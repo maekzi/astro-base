@@ -1,0 +1,114 @@
+// | -------------------------------------------------------------
+// | Font
+// | -------------------------------------------------------------
+
+body {
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  a:not(.button) {
+    color: hsl(var(--action-color));
+    text-decoration: none;
+
+    &:visited {
+      color: hsl(var(--action-color));
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  :where(main) a {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  :where(h1, h2) {
+    font-family: hsl(var(--font-family-special));
+  }
+
+  h1,
+  h2 {
+    @apply font-extrabold;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold;
+  }
+
+  h1 {
+    @apply text-4xl font-extrabold;
+
+    @media (min-width: 786px) {
+      // line-height: 3.625rem;
+      @apply text-5xl;
+    }
+  }
+
+  h2 {
+    @apply text-3xl;
+
+    @media (min-width: 786px) {
+      @apply text-4xl;
+      // line-height: 3.375rem;
+    }
+  }
+
+  h3 {
+    @apply text-2xl;
+    // line-height: 2.25rem;
+
+    @media (min-width: 786px) {
+      @apply text-3xl;
+      // line-height: 2.8125rem;
+    }
+  }
+
+  h4 {
+    @apply text-xl;
+    // line-height: 1.875rem;
+
+    @media (min-width: 786px) {
+      @apply text-2xl;
+      // line-height: 2.25rem;
+    }
+  }
+
+  h5 {
+    @apply text-lg;
+    // line-height: 1.6875rem;
+
+    @media (min-width: 786px) {
+      @apply text-xl;
+      // line-height: 1.875rem;
+      h6 {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .markdown {
+    h1,
+    h2 {
+      margin-top: 2rem;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 1rem;
+    }
+  }
+}

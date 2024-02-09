@@ -1,0 +1,186 @@
+// | -------------------------------------------------------------
+// | Button https://cva.style/docs/examples/astro
+// | -------------------------------------------------------------
+
+.button {
+  /* @apply
+      inline-flex
+      items-center
+      justify-center
+      whitespace-nowrap
+      rounded-md
+      text-sm
+      font-medium
+      transition-colors
+      ---
+      bg-primary
+      text-primary-foreground
+      hover:bg-primary/90
+    */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  @apply rounded-md border-none transition-colors;
+
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+
+  &:hover,
+  &:focus {
+    background-color: hsl(var(--primary) / 0.9);
+  }
+  &:visited {
+    border-color: hsl(var(--action-color-state));
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.variant-secondary {
+    /* @apply
+      bg-secondary
+      text-secondary-foreground
+      hover:bg-secondary/80
+    */
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+
+    &:hover,
+    &:focus {
+      background-color: hsl(var(--secondary) / 0.8);
+    }
+  }
+
+  &.variant-fabricative {
+    /* @apply
+      bg-fabricative
+      text-fabricative-foreground
+      hover:bg-fabricative/90
+    */
+    background-color: hsl(var(--fabricative));
+    color: hsl(var(--fabricative-foreground));
+
+    &:hover,
+    &:focus {
+      background-color: hsl(var(--fabricative) / 0.9);
+    }
+  }
+
+  &.variant-destructive {
+    /* @apply
+      bg-destructive
+      text-destructive-foreground
+      hover:bg-destructive/90
+    */
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+
+    &:hover,
+    &:focus {
+      background-color: hsl(var(--destructive) / 0.9);
+    }
+  }
+
+  &.variant-ghost {
+    /* @apply
+      bg-background
+      text-foreground
+      hover:bg-accent
+      hover:text-accent-foreground
+    */
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+
+    &:hover,
+    &:focus {
+      background-color: hsl(var(--accent));
+      color: hsl(var(--accent-foreground));
+    }
+  }
+
+  &.variant-link {
+    /* @apply
+      border
+      border-input
+      bg-background
+      text-foreground
+      hover:bg-accent
+      hover:text-accent-foreground;
+    */
+    background-color: transparent;
+    color: hsl(var(--primary));
+    text-underline-offset: 4px;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  &.variant-outline {
+    /* @apply
+      border
+      border-input
+      bg-background
+      text-foreground
+      hover:bg-accent
+      hover:text-accent-foreground;
+    */
+    border-width: 1px;
+    border-color: hsl(var(--input));
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+
+    &:hover,
+    &:focus {
+      background-color: hsl(var(--accent));
+      color: hsl(var(--accent-foreground));
+    }
+  }
+
+  &.size-tiny {
+    padding: 0.125rem 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    @apply rounded;
+  }
+
+  &.size-small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
+    @apply rounded;
+  }
+
+  &.size-large {
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem;
+    line-height: 1.6875rem;
+  }
+
+  &.size-huge {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+  }
+
+  &.behavior-full {
+    display: block;
+    width: 100%;
+  }
+
+  &.has-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    [data-icon] {
+      width: 30px;
+    }
+  }
+}

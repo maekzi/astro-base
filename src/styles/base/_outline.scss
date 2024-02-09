@@ -1,0 +1,21 @@
+// | -------------------------------------------------------------
+// | Outline
+// | -------------------------------------------------------------
+
+@mixin outline {
+  outline: 2px solid transparent;
+  outline-color: hsl(var(--ring));
+  outline-offset: 2px;
+  -webkit-box-shadow: 0 0 0 2px hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+
+*:focus,
+*:focus-visible {
+  @include outline;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}

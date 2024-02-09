@@ -1,0 +1,26 @@
+---
+import type { ComponentProps } from "astro/types";
+import type BreadcrumbsItem from "./BreadcrumbsItem.astro";
+
+type BreadcrumbsItemProps = ComponentProps<typeof BreadcrumbsItem>;
+
+interface Props {
+  children: BreadcrumbsItemProps | BreadcrumbsItemProps[];
+}
+
+Astro.props as Props;
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumbs">
+  <ol>
+    <slot />
+  </ol>
+</nav>
+
+<style is:global>
+  .breadcrumbs ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+</style>

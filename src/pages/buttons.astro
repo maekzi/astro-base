@@ -1,0 +1,42 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<DefaultLayout title="Buttons">
+  <section class="md:my:48 container my-24">
+    <h1 class="py-8">Buttons and Variants</h1>
+    <div class="flex flex-wrap items-center justify-around py-8">
+      <h2 class="w-full pb-4">Variants</h2>
+      <button class="button">primary</button>
+      <button class="button variant-secondary">secondary</button>
+      <button class="button variant-fabricative">fabricative</button>
+      <button class="button variant-destructive">destructive</button>
+      <button class="button variant-outline">outline</button>
+      <button class="button variant-ghost">ghost</button>
+      <button class="button variant-link">link</button>
+    </div>
+    <div class="flex flex-wrap items-center justify-around py-8">
+      <h2 class="w-full pb-4">Sizes</h2>
+      <button class="button variant-primary size-tiny">tiny</button>
+      <button class="button variant-primary size-small">small</button>
+      <button class="button variant-primary">default</button>
+      <button class="button variant-primary size-large">large</button>
+      <button class="button variant-primary size-huge">huge</button>
+    </div>
+    <div class="flex flex-wrap items-center justify-around py-8">
+      <h2 class="w-full pb-4">Behavior</h2>
+      <button class="button behavior-full">full</button>
+    </div>
+    <div class="flex flex-wrap items-center justify-around py-8">
+      <h2 class="w-full pb-4">Extra</h2>
+      <button class="button has-icon">
+        <Icon title="test icon" name="mdi:ab-testing" />
+        Icon
+      </button>
+      <button class="button variant-ghost has-icon">
+        <Icon size={30} title="test icon" name="mdi:ab-testing" />
+      </button>
+    </div>
+  </section>
+</DefaultLayout>

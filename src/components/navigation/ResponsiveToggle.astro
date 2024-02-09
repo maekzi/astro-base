@@ -1,0 +1,91 @@
+<button id="responsive-toggle" class="responsive-toggle" aria-expanded="false" aria-label="Open menu navigation">
+  <svg width="26" height="21" aria-hidden="true" fill="hsl(var(--foreground))" xmlns="http://www.w3.org/2000/svg"
+    ><path
+      d="M2 1.667h24m-24 8h24m-24 8h24"
+      stroke="hsl(var(--foreground))"
+      stroke-width="2.667"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path></svg
+  >
+</button>
+
+<script>
+  import * as focusTrap from "focus-trap";
+  document.addEventListener("astro:page-load", () => {
+    // variables
+    const mobileNavigation: HTMLElement | null = document.querySelector(".mobile-menu");
+    const responsiveToggle = document.getElementById("responsive-toggle");
+
+    if (mobileNavigation) {
+      const focusTrapInstance = focusTrap.createFocusTrap(mobileNavigation, {
+        clickOutsideDeactivates: true,
+        onDeactivate: () => {
+          responsiveToggle?.focus();
+        },
+      });
+
+      // functions
+      const openMenu = (toggle: HTMLElement) => {
+        toggle.setAttribute("aria-expanded", "true");
+        toggle.setAttribute("aria-label", "Close menu navigation");
+        toggle.innerHTML = `<svg width="20" height="20" aria-hidden="true" fill="hsl(var(--foreground)" xmlns="http://www.w3.org/2000/svg"><path d="M10 10 2 2m8 8 8 8m-8-8 8-8m-8 8-8 8" stroke="hsl(var(--foreground))" stroke-width="2.667" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+        focusTrapInstance.activate();
+      };
+
+      const closeMenu = (toggle: HTMLElement) => {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu navigation");
+        toggle.innerHTML = `<svg width="26" height="21" aria-hidden="true" fill="hsl(var(--foreground))" xmlns="http://www.w3.org/2000/svg"><path d="M2 1.667h24m-24 8h24m-24 8h24" stroke="hsl(var(--foreground))" stroke-width="2.667" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+        focusTrapInstance.deactivate();
+      };
+
+      // execution
+      responsiveToggle!.addEventListener("click", () => {
+        if (responsiveToggle === null) {
+          return;
+        }
+
+        mobileNavigation!.classList.toggle("show");
+        mobileNavigation!.classList.contains("show") ? openMenu(responsiveToggle) : closeMenu(responsiveToggle);
+      });
+
+      mobileNavigation!.addEventListener("keydown", (event) => {
+        const key = event.key;
+
+        if (responsiveToggle === null) {
+          return;
+        }
+
+        if (key === "Escape") {
+          mobileNavigation!.classList.toggle("show");
+          mobileNavigation!.classList.contains("show") ? openMenu(responsiveToggle) : closeMenu(responsiveToggle);
+        }
+      });
+    }
+  });
+</script>
+
+<style lang="scss">
+  @use "../../styles/base/outline" as *;
+
+  .responsive-toggle {
+    display: none;
+    padding: 0;
+    margin-top: 6px;
+    border: none;
+
+    svg {
+      width: 30px;
+
+      path {
+        transition: fill 0.2s ease-in-out;
+      }
+    }
+
+    &:hover {
+      svg path {
+        fill: hsl(var(--primary-400));
+      }
+    }
+  }
+</style>
