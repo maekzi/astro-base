@@ -1,0 +1,13 @@
+---
+// FIXME Use <Image /> or <Picture /> from astro:assets if types are fixed in the future
+
+interface Props {
+  class?: string;
+  src: string;
+  alt: string;
+}
+
+const { class: classNames, src, alt } = Astro.props;
+---
+
+<img class={classNames} src={src} alt={alt} loading="lazy" decoding="async" />

@@ -1,0 +1,39 @@
+---
+import { cva, type VariantProps } from "class-variance-authority";
+
+import Media from "./Media.astro";
+
+const contentMedia = cva("md:my:48 my-24", {
+  variants: {
+    contentSize: {
+      default: [""],
+      popout: ["section-popout"],
+      feature: ["section-feature"],
+      full: ["section-full"],
+    },
+  },
+  compoundVariants: [{ contentSize: "default" }],
+});
+
+interface ContentMediaProps {
+  imgSrc: string;
+  imgAlt: string;
+  reverseImg?: boolean;
+}
+
+export interface Props extends ContentMediaProps, VariantProps<typeof contentMedia> {}
+
+const { imgSrc, imgAlt, reverseImg = false, contentSize = "default" } = Astro.props;
+---
+
+<section class={contentMedia({ contentSize })}>
+  <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+    {!reverseImg ? <Media class="rounded-lg" src={imgSrc} alt={imgAlt} /> : ""}
+    <div class="space-content flex flex-col justify-center">
+      <slot />
+    </div>
+    {reverseImg ? <Media class="rounded-lg" src={imgSrc} alt={imgAlt} /> : ""}
+  </div>
+</section>
+
+<style></style>

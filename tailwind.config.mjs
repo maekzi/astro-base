@@ -10,9 +10,6 @@ export default {
         sm: "2rem",
         lg: "1rem",
       },
-      screens: {
-        "2xl": "1400px",
-      },
     },
     fontFamily: {
       sans: [
