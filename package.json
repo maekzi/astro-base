@@ -24,15 +24,15 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
+    "@astrojs/check": "^0.5.2",
     "@astrojs/mdx": "^2.1.1",
-    "@astrojs/react": "^3.0.9",
+    "@astrojs/react": "^3.0.10",
     "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.1.0",
     "@iconify-json/mdi": "^1.1.64",
     "@types/react": "^18.2.55",
-    "astro": "^4.3.4",
-    "astro-compress": "^2.2.9",
+    "astro": "^4.3.5",
+    "astro-compress": "^2.2.10",
     "astro-icon": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
@@ -46,7 +46,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "^1.4.0",
+    "@astrojs/ts-plugin": "^1.5.0",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "eslint": "^8.56.0",
