@@ -1,0 +1,27 @@
+---
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+
+import Feature from "../../components/content/Feature.astro";
+---
+
+<DefaultLayout>
+  <section class="section-feature mt-8 flex items-center justify-center rounded-2xl p-8">
+    <div class="container">
+      <h2 class="mb-16 text-6xl">Features</h2>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        <Feature icon="mdi:tailwind" title="Feature 1"> Feature 1 Text goes here. Maybe a little longer. </Feature>
+        <Feature icon="mdi:wheelchair-accessibility" title="Feature 2">
+          Feature 2 Text goes here. Maybe a little longer.
+        </Feature>
+        <Feature icon="mdi:looks" title="Feature 3"> Feature 3 Text goes here. Maybe a little longer. </Feature>
+        <Feature icon="mdi:eslint" title="Feature 4"> Feature 4 Text goes here. Maybe a little longer. </Feature>
+        <Feature icon="mdi:book-open-page-variant" title="Feature 5">
+          Feature 5 Text goes here. Maybe a little longer.
+        </Feature>
+        <Feature icon="mdi:language-markdown" title="Feature 6">
+          Feature 6 Text goes here. Maybe a little longer.
+        </Feature>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
