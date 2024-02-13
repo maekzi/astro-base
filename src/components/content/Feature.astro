@@ -1,0 +1,89 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  icon: String;
+  title: String;
+  highlightColor?: "foreground" | "primary" | "secondary";
+}
+
+const { icon, title, highlightColor = "foreground" } = Astro.props;
+---
+
+<div class=`feature flex flex-col gap-4 ${highlightColor}`>
+  <Icon size={64} title=`${title} icon` name={icon} />
+  <div class="feature-content">
+    <h3>{title}</h3>
+    <p>
+      <slot>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.</slot>
+    </p>
+  </div>
+</div>
+
+<style lang="scss">
+  .feature {
+    position: relative;
+    width: calc(100% - 0.5rem);
+    padding: 2rem;
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (min-width: 786px) {
+      width: 100%;
+    }
+
+    &.foreground {
+      &::after {
+        background-color: hsl(var(--foreground));
+      }
+
+      [data-icon] {
+        color: hsl(var(--foreground));
+      }
+    }
+
+    &.primary {
+      &::after {
+        background-color: hsl(var(--primary));
+      }
+
+      [data-icon] {
+        color: hsl(var(--primary));
+      }
+    }
+
+    &.secondary {
+      &::after {
+        background-color: hsl(var(--secondary));
+      }
+
+      [data-icon] {
+        color: hsl(var(--secondary));
+      }
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      inset: 0;
+      background-color: hsl(var(--background));
+      border: 3px solid hsl(var(--foreground));
+      border-radius: 1rem;
+      box-shadow: 0 0 0 6px hsl(var(--background));
+      z-index: 1;
+    }
+
+    &::after {
+      inset: 1rem -0.85rem -0.85rem 1rem;
+      border-radius: 1rem;
+      z-index: 0;
+    }
+  }
+</style>
