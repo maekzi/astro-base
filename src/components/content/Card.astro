@@ -1,0 +1,101 @@
+---
+import Media from "./Media.astro";
+
+interface Props {
+  url?: string;
+  img?: string;
+  alt?: string;
+  title?: string;
+  footer?: string;
+  externalLink?: boolean;
+  children?: string | HTMLElement | HTMLElement[];
+}
+
+const {
+  url = "#",
+  img = "https://placehold.co/640x360",
+  title = "Default title",
+  footer = "Your name",
+  alt = "Placeholder Image",
+  externalLink = false,
+} = Astro.props;
+---
+
+<div class="card">
+  <div class="card__image">
+    <Media src={img} alt={alt} />
+  </div>
+  <div class="card__content">
+    <h3>
+      <a href={url} rel={externalLink ? "external noopener noreferrer" : ""}>{title}</a>
+    </h3>
+    <p>
+      <slot>Default description.</slot>
+    </p>
+    <small>
+      {footer}
+    </small>
+  </div>
+</div>
+
+<style lang="scss" is:global>
+  .card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid hsl(var(--accent));
+    max-width: 60ch;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.15s ease-in-out;
+    background-color: hsl(var(--card));
+    @apply rounded-xl;
+
+    &:hover,
+    &:focus-within {
+      box-shadow: 0 0 0 0.25rem hsl(var(--foreground));
+
+      & a:focus {
+        text-decoration: none;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+
+  .card__image {
+    height: 10rem;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .card__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1rem;
+
+    a {
+      text-decoration: none;
+
+      &:focus {
+        text-decoration: underline;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+    }
+
+    small:last-child {
+      margin-top: auto;
+      padding-top: 2rem;
+    }
+  }
+</style>

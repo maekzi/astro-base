@@ -1,0 +1,26 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+import Card from "@components/content/Card.astro";
+---
+
+<DefaultLayout>
+  <section class="section-feature mt-8 flex items-center justify-center rounded-2xl p-8">
+    <div class="container">
+      <h2 class="mb-16 text-6xl">Features</h2>
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+        <Card
+          title="Card Element"
+          img="/illustrations/undraw_feeling_proud.svg"
+          footer="Maximilian"
+          alt="Man sitting on Desk"
+          url="https://mkz.dev"
+        >
+          Card Element
+        </Card>
+        <Card footer="Maximilian"> Baumhaus </Card>
+        <Card />
+      </div>
+    </div>
+  </section></DefaultLayout
+>
