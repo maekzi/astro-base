@@ -1,0 +1,31 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+import Accordion from "@components/content/Accordion.astro";
+import AccordionItem from "@components/content/AccordionItem.astro";
+import Card from "@components/content/Card.astro";
+---
+
+<DefaultLayout>
+  <section class="section-feature mt-8 flex items-center justify-center rounded-2xl p-8">
+    <div class="container">
+      <h2 class="mb-16 text-6xl">Accordion</h2>
+      <Accordion>
+        <AccordionItem header="Accordion Header"> Accordion Content </AccordionItem>
+        <AccordionItem header="Accordion Header"> Accordion Content </AccordionItem>
+      </Accordion>
+    </div>
+  </section>
+  <section class="section-feature mt-8 flex items-center justify-center rounded-2xl p-8">
+    <div class="container w-1/2">
+      <h2 class="mb-16 text-6xl">Accordion Half Size</h2>
+      <Accordion>
+        <AccordionItem header="Accordion Header"> Accordion Content </AccordionItem>
+        <AccordionItem header="Accordion Header"> Accordion Content </AccordionItem>
+      </Accordion>
+    </div>
+    <div class="container w-1/2">
+      <Card />
+    </div>
+  </section>
+</DefaultLayout>
