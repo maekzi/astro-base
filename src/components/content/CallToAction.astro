@@ -1,0 +1,33 @@
+---
+import { cva, type VariantProps } from "class-variance-authority";
+
+const callToAction = cva("pb-32 pt-24 h-full flex flex-col items-center gap-12 rounded-xl", {
+  variants: {
+    gradient: {
+      purplelake: ["bg-gradient-to-tr", "from-purple-800", "to-pink-600"],
+      quepal: ["bg-gradient-to-tr", "from-cyan-600", "to-emerald-500"],
+      yosemite: ["bg-gradient-to-tr", "from-rose-400", "to-purple-500"],
+    },
+  },
+  compoundVariants: [{ gradient: "purplelake" }],
+});
+
+interface CTAProps {
+  headline: String;
+  ctaText: String;
+  ctaUrl: String;
+}
+
+export interface Props extends CTAProps, VariantProps<typeof callToAction> {}
+
+const { headline, ctaText, ctaUrl, gradient = "purplelake" } = Astro.props;
+---
+
+<div class="w-full">
+  <div class={callToAction({ gradient })}>
+    <h2 class="text-center text-3xl text-background dark:text-foreground md:text-5xl">{headline}</h2>
+    <a href=`${ctaUrl}` class="button size-huge bg-white text-black hover:bg-white/90 dark:text-black">
+      {ctaText}
+    </a>
+  </div>
+</div>

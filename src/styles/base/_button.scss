@@ -34,7 +34,7 @@
     background-color: hsl(var(--primary) / 0.9);
   }
   &:visited {
-    border-color: hsl(var(--action-color-state));
+    border-color: hsl(var(--accent));
   }
   &:disabled {
     opacity: 0.5;
@@ -131,9 +131,10 @@
       hover:bg-accent
       hover:text-accent-foreground;
     */
-    border-width: 1px;
-    border-color: hsl(var(--input));
-    background-color: hsl(var(--background));
+    border-width: 3px;
+    border-style: solid;
+    border-color: hsl(var(--foreground));
+    background-color: transparent;
     color: hsl(var(--foreground));
 
     &:hover,
