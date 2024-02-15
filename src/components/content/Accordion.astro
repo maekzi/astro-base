@@ -57,6 +57,7 @@ interface Props {
     };
 
     function recalculateHeight() {
+      const accordionItems = [...document.querySelectorAll(".accordion__item")];
       const toggledAccordionItems = accordionItems.filter((element) => element.classList.contains("is-active"));
 
       toggledAccordionItems.forEach((toggledAccordionItem) => {
@@ -123,12 +124,12 @@ interface Props {
           targetItem.querySelector(".accordion__header").focus();
         }
       });
-
-      window.onresize = recalculateHeight;
     }
 
     const accordionContainers = document.querySelectorAll(".accordion");
     accordionContainers.forEach((container) => initializeAccordion(container));
+
+    window.onresize = recalculateHeight;
   });
 </script>
 
