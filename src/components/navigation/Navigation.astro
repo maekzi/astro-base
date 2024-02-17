@@ -5,7 +5,7 @@ import ResponsiveToggle from "./ResponsiveToggle.astro";
 ---
 
 <div id="main-navigation" class="is-desktop bg-background py-8">
-  <div class="container">
+  <div class="nav-container">
     <a href=`/` class="flex items-center gap-2 !no-underline">
       <span class="max-w-[47px]"><Icon size={36} name="logo" title="logo" /></span>
       <span class="font-bold">mkz.dev</span>
@@ -222,10 +222,15 @@ import ResponsiveToggle from "./ResponsiveToggle.astro";
   @use "../../styles/base/outline" as *;
 
   #main-navigation {
-    > .container {
+    > .nav-container {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      padding: 0 1rem;
+
+      @media (min-width: 768px) {
+        padding: 0 2rem;
+      }
     }
 
     &.is-desktop {
