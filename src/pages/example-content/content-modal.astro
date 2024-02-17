@@ -1,0 +1,18 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+import Modal from "@components/content/Modal.astro";
+import ContentMedia from "@/components/content/ContentMedia.astro";
+---
+
+<DefaultLayout>
+  <section class="section-feature mt-8 flex items-center justify-center rounded-2xl p-8">
+    <div class="container">
+      <h2 class="mb-16 text-6xl">Modal</h2>
+      <Modal triggerId="mymodal" title="Card in Modal">
+        <p class="w-full md:w-1/2">MODAL CONTENT</p>
+      </Modal>
+      <button class="button" id="mymodal">Open Modal</button>
+    </div>
+  </section>
+</DefaultLayout>
