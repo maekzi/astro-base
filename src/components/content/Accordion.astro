@@ -4,6 +4,8 @@ import AccordionItem from "./AccordionItem.astro";
 
 type AccordionItemProps = ComponentProps<typeof AccordionItem>;
 
+// Disable no-unused-vars because eslint does not get Props is used automatically.
+// eslint-disable-next-line no-unused-vars
 interface Props {
   children: AccordionItemProps | AccordionItemProps[];
 }
