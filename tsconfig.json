@@ -17,12 +17,12 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"],
-      "@content/*": ["./src/content/*"],
+      "@content/*": ["./src/content/*"]
     },
     "plugins": [
       {
-        "name": "@astrojs/ts-plugin",
-      },
-    ],
-  },
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
+  }
 }

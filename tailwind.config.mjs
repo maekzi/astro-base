@@ -98,5 +98,6 @@ export default {
       },
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports -- Cant module load this plugin
   plugins: [require("tailwindcss-animate")],
 };

@@ -77,5 +77,4 @@ If you create pages with the `/src/layouts/DefaultLayout.astro` all sections wil
 
 TBD
 
-
 Inispired by [shadcn/ui](https://ui.shadcn.com/) and [accessible-astro](https://accessible-astro.netlify.app/)

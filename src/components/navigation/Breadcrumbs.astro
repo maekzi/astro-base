@@ -4,11 +4,10 @@ import type BreadcrumbsItem from "./BreadcrumbsItem.astro";
 
 type BreadcrumbsItemProps = ComponentProps<typeof BreadcrumbsItem>;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Props {
   children: BreadcrumbsItemProps | BreadcrumbsItemProps[];
 }
-
-Astro.props as Props;
 ---
 
 <nav class="breadcrumbs" aria-label="Breadcrumbs">
