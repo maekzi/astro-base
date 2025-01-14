@@ -16,7 +16,7 @@ interface Props {
   </ul>
 </div>
 
-<script type="module">
+<script is:inline type="module">
   document.addEventListener("astro:page-load", () => {
     const getPanelHeight = (accordionItem) => {
       const accordionInner = accordionItem.querySelector(".panel__inner");
