@@ -1,3 +1,6 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+import tailwindTypography from "@tailwindcss/typography";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class", ".darkmode"],
@@ -12,29 +15,8 @@ export default {
       },
     },
     fontFamily: {
-      sans: [
-        '"Open Sans"',
-        "ui-sans-serif",
-        "system-ui",
-        "sans-serif",
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
-      ],
-      mono: [
-        "JetBrains Mono",
-        "monospace",
-        "ui-monospace",
-        "Menlo",
-        "Monaco",
-        "Cascadia Mono",
-        "Segoe UI Mono",
-        "Consolas",
-        '"Liberation Mono"',
-        '"Courier New"',
-        "monospace",
-      ],
+      sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],
+      mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
     },
     extend: {
       colors: {
@@ -98,6 +80,5 @@ export default {
       },
     },
   },
-  // eslint-disable-next-line @typescript-eslint/no-require-imports -- Cant module load this plugin
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindTypography],
 };
